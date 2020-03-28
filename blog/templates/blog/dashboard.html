@@ -1,0 +1,55 @@
+{% extends "blog/base.html" %}
+       
+
+  {% block navi %}
+  {% if user.is_authenticated%}
+  <a class="nav-item nav-link" href="{%url 'create'%}">Create new post</a>     
+  <a class="nav-item nav-link" href="{%url 'logout'%}">Logout</a>
+     
+  {%else%}
+  <a class="nav-item nav-link" href="{%url 'login'%}">Login</a>
+          <a class="nav-item nav-link" href="{%url 'register'%}">Register</a>
+  {%endif%}
+  {%endblock%}
+
+ {%block body%}
+
+ <div class="container p-3 my-3 border" style="background-color: #12A09F">
+  <center>
+    <h1 style="color:white;">Your posts</h1>
+  </center>
+</div>
+
+ 	{%if post_list%}
+ 	{%for post in post_list%}
+ <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata mr-2">
+              <h2><u><a class="mr-2" href="{%url 'detail' post.id %}">{{ post.title }}</a></u></h2>
+              <small class="text-muted">{{ post.pub_date }}</small>
+            </div>
+            <p class="article-content">{{ post.content }}</p>
+             <div >
+            <a class="btn btn-outline-info" href="{%url 'update' post.id%}">Edit</a>
+            <a class="btn btn-outline-danger" href="{%url 'delete' post.id%}">Delete</a>
+          </div>
+          </div>
+         
+        </article>
+ 	{%endfor%}
+  {%else%}
+     <article class="media content-section">
+          <div class="media-body">
+            
+            <h1><center><a class="btn btn-primary" href="{%url 'create' %}">Create your first post</a></center></h1>
+          </div></article>
+ 	{%endif%}
+
+
+ {%endblock%}
+
+
+
+
+
+

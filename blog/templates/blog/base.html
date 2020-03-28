@@ -1,0 +1,145 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/blog.css' %}">
+
+    {% if title %}
+        <title>Django Blog - {{ title }}</title>
+    {% else %}
+        <title>Django Blog</title>
+    {% endif %}
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">JBlog</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+           
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+              {%block navi%}{%endblock%}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {%if messages%}
+          {%for message in messages%}
+            <div class="alert alert-{{message.tags}}">{{message}}</div>
+            {%endfor%}{%endif%}
+          {% block body %}{% endblock %}
+          
+        </div>
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>Sidebar</h3>
+            <p class='text-muted'>I'll put buttons to sort the posts
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light">Order by Date Published</li>
+                <li class="list-group-item list-group-item-light">Order by Likes</li>
+                <li class="list-group-item list-group-item-light">Order by Users</li>
+                <li class="list-group-item list-group-item-light">etc</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>""
+<br><br><br><br> 
+<footer class="page-footer font-small blue pt-4" style="background-color: teal; color:white ; font-family: 'Brush Script MT';">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase" style="color: black;">Jblog</h5>
+        <p>Welocme to a great platform to express your views.Easily create, update and delete your blogs. We would be very happy to welcome you to our community</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      
+     <div class="col-md-3">
+     </div>
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase" style="color:black;">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" style="color:white">Contact Us</a>
+          </li>
+          <li>
+            <a href="#!" style="color:white">About</a>
+          </li>
+          <li>
+            <a href="#!" style="color:white">Motivation</a>
+          </li>
+          <li>
+            <a href="#!" style="color:white">FAQs</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+<br>
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 text-muted" style="background-color: #004d4d ;color: white; ">Created by :
+    <a href="#" style="color: white;"> Jayesh Singla</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+</html>
+
+   
+
