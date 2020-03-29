@@ -29,3 +29,7 @@ python3 manage.py runserver
 ```
 4.The blog application will start running at localhost:8000.
 Go to the url localhost:8000/blog/home.
+
+
+Note-: Default links on the webpages correspond to the generic views. The code for the the custom views can seen in blog/views.py and 
+those views can be accessed using the URLs in the blog/urls.py file
